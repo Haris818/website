@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopMate - E-Commerce Homepage</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            header .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            header nav ul {
+                list-style: none;
+                display: flex;
+                gap: 20px;
+            }
+
+                header nav ul li a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1rem;
+                }
+
+                    header nav ul li a:hover {
+                        color: #ff6f61;
+                    }
+
+      
+
+
+        .categories-header {
+            position: relative;
+            text-align: center;
+        }
+
+            .categories-header h1 {
+                font-size: 2.5rem;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+                font: bold;
+            }
+
+                .categories-header h1::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: linear-gradient(to right, #ff6b6b, #f8e71c, #6bc1ff);
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.4s ease;
+                }
+
+                .categories-header h1:hover::before {
+                    transform: scaleX(1);
+                }
+
+                .categories-header h1:hover {
+                    color: #ff6b6b;
+                }
+
+                .categories-header h1:active {
+                    transform: scale(0.95);
+                }
+
+                /* Smooth animation on focus without keyframes */
+                .categories-header h1:focus {
+                    outline: none;
+                    box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+                    transform: translateY(-2px);
+                    transition: transform 0.2s ease, box-shadow 0.3s ease;
+                }
+
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Equal spacing between cards */
+            padding: 20px;
+            gap: 20px;
+            max-width: 1200px; /* Container width restriction */
+            margin: 0 auto; /* Center container */
+        }
+
+        .category-card {
+            flex: 1 1 calc(25% - 20px); /* 25% width per card, accounting for gap */
+            max-width: calc(25% - 20px); /* Ensures cards don't exceed 25% width */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .category-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .category-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .category-card .card-content {
+                padding: 15px;
+                text-align: center;
+            }
+
+                .category-card .card-content h3 {
+                    margin: 10px 0;
+                    font-size: 1.5rem;
+                    color: #333;
+                }
+
+                .category-card .card-content p {
+                    margin: 0;
+                    color: #666;
+                }
+
+                .category-card .card-content a {
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 10px 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }
+
+                    .category-card .card-content a:hover {
+                        background-color: #45a049;
+                    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            transition: opacity 1s ease;
+        }
+
+            .slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            z-index: 2;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .dot.active {
+                background-color: #ff6f61;
+            }
+        
+    </style>
+</head>
+<body>
+
+
+   
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="https://dcassetcdn.com/design_img/2507911/86989/86989_13329833_2507911_307772c9_image.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="https://70mmmaleclothing.com/wp-content/uploads/2024/04/web-banner-4.png" alt="Slide 2"></div>
+            <div class="slide"><img src="https://cdna.artstation.com/p/assets/images/images/031/586/906/large/murugendra-hiremath-00001212.jpg" alt="Slide 3"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slideIndex = (index + dots.length) % dots.length;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            showSlide(slideIndex + step);
+        }
+
+        function currentSlide(index) {
+            showSlide(index);
+        }
+
+        function autoSlide() {
+            moveSlide(1);
+            setTimeout(autoSlide, 4000);
+        }
+
+        // Initialize slider
+        showSlide(slideIndex);
+        setTimeout(autoSlide, 4000);
+    </script>
+
+    <br />
+    <div class="categories-header">
+        <h1>SHOP BY CATEGORIES</h1>
+    </div>
+    
+
+    <div class="categories-container">
+        <div class="category-card">
+            <img src="https://static-01.daraz.pk/p/39b2f8c5c03f999c95a61c4766889298.jpg" alt="Category 1">
+            <div class="card-content">
+                <h3>Electronics</h3>
+                <p>Explore the latest gadgets and devices.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://timecheck.pk/cdn/shop/files/8446_BG_2.jpg?v=1719059651&width=1200" alt="Category 2">
+            <div class="card-content">
+                <h3>Fashion</h3>
+                <p>Discover trending styles and clothing.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://paganidesignwatches.pk/cdn/shop/files/pd-1701-19.jpg?v=1688374747" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT63FYXD0kaeDclB2o6ayC_frVG1WVWSuUBg&s" alt="Category 4">
+            <div class="card-content">
+                <h3>Beauty</h3>
+                <p>Find beauty and skincare products.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="categories-container">
+        <div class="category-card">
+            <img src="https://bestonline.pk/cdn/shop/files/WhatsAppImage2023-11-22at23.43.25_c6138f4c.jpg?v=1700773308" alt="Category 1">
+            <div class="card-content">
+                <h3>Electronics</h3>
+                <p>Explore the latest gadgets and devices.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://tomiwatches.pk/cdn/shop/files/rn-image_picker_lib_temp_6ce94852-2dfe-46c5-a935-d13e9767484e.jpg?v=1724352626&width=1445" alt="Category 2">
+            <div class="card-content">
+                <h3>Fashion</h3>
+                <p>Discover trending styles and clothing.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://casualwatches.in/cdn/shop/products/37.jpg?v=1696061210&width=1445" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://casualwatches.in/cdn/shop/products/37.jpg?v=1696061210&width=1445" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRot2dT6JFwncFUufDlC9D8-Jqg7MQ0HR7OPA&s" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://currenwatches.com.pk/cdn/shop/files/72186692-7bf4-452a-97f7-8685142e923c_533x.jpg?v=1718179793" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiRYEMn0sODm5EGdSgmgVcnvZOCsaW83XHlg&s" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://pinkpops.pk/cdn/shop/files/0_O1CN01CH4DGl1yzkfZ23Y4U__3192666650-0-cib_600x.jpg?v=1711637328" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://blumoon.pk/wp-content/uploads/2024/01/heart-pendant-for-girl-1.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/necklace-chain/q/a/q/1-khdz031-gold-01-necklace-thevinegirl-original-imaghbtkggbgwa5h.jpeg?q=90&crop=false" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMDnscmqd7VP2x30Jsc3VuB-XmYf300aPPOA&s" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://dakaan.pk/product_images/butterfly-necklace-for-girls-0fdf73383ec9c792.webp" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/f8a1f40afbaea4b2b8414c83c398bbc8.jpg_720x720q80.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://cdn0.weddingwire.in/article/6117/original/1280/jpg/107116-wedding-dresses-for-girls-2.jpeg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVEJ8adY3w_8QUneDuI_MsCizdg_1ECoGjmhsSoM_EbHcCTregmRg0A5eCE7x_0eSpmX0&usqp=CAU" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://i.pinimg.com/736x/35/c7/c1/35c7c1f43323bd4187f54b81bfd062e0.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://deeds.pk/cdn/shop/files/New-Winter-Men-s-Hooded-Parkas-Windbreaker-Fashion-Thermal-Coats-Mens-Thick-Warm-Glossy-Black-Jackets_jpg_640x640_jpg.webp?v=1698321101" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://m.media-amazon.com/images/I/81TSzH3KEmL._AC_SL1500_.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://m.media-amazon.com/images/I/610+Si1DRuL._AC_SL1275_.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://devotedstore.com/cdn/shop/files/1000074562.jpg?v=1725134987" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/Search/676/D79991.jpg?im=Resize,width=350" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://triprindia.com/cdn/shop/files/bbgrnfulboy-bz62_1_800x.jpg?v=1714217817" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://triprindia.com/cdn/shop/files/bbldgyrnfulboy-bz61_1_1024x.jpg?v=1714201965" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="category-card">
+            <img src="https://breakout.com.pk/cdn/shop/files/K24FT289-BLK_1.jpg?v=1727091793" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+       
+       
+
+    
+</body>
+</html>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title> <!-- Dynamically set title from ViewBag -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+            .contact-section h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+                color: #333;
+            }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+
+                .contact-form input[type="submit"] {
+                    background-color: #28a745;
+                    color: white;
+                    cursor: pointer;
+                    border: none;
+                    transition: background-color 0.3s;
+                }
+
+                    .contact-form input[type="submit"]:hover {
+                        background-color: #218838;
+                    }
+
+            .contact-form textarea {
+                height: 150px;
+                resize: none;
+            }
+
+        /* Contact Info */
+        .contact-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+            .contact-info h3 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .contact-info p {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .contact-info a {
+                color: #28a745;
+                text-decoration: none;
+            }
+
+        /* Map Section */
+        .map-container {
+            margin-top: 50px;
+            position: relative;
+            height: 400px;
+            background-color: #ddd;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+            footer p {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>CONTACT US</h1>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Get in Touch with Us</h2>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+            <div>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div>
+                <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+            </div>
+            <div class="full-width">
+                <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            </div>
+
+            <div class="full-width">
+                <input type="submit" value="Send Message">
+            </div>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h3>Our Contact Information</h3>
+            <p>Email: <a href="mailto:support@shopmate.com">support@shopmate.com</a></p>
+            <p>Phone: +123-456-7890</p>
+            <p>Address: 123 ShopMate Street, E-Commerce City, EC 56789</p>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-container">
+            <!-- Here, you can embed a Google Map for your location -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.871822557898!2d-122.44825788468476!3d37.77552077975894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858100f37a8c57%3A0x6821b01d54a7f5c2!2s123%20ShopMate%20Street%2C%20E-Commerce%20City%2C%20EC%2056789!5e0!3m2!1sen!2sus!4v1672469213822!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 ShopMate. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "CATEGORIES";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - E-Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .categories-header {
+            position: relative;
+            text-align: center;
+        }
+
+            .categories-header h1 {
+                font-size: 2.5rem;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+                font:bold;
+            }
+
+                .categories-header h1::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: linear-gradient(to right, #ff6b6b, #f8e71c, #6bc1ff);
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.4s ease;
+                }
+
+                .categories-header h1:hover::before {
+                    transform: scaleX(1);
+                }
+
+                .categories-header h1:hover {
+                    color: #ff6b6b;
+                }
+
+                .categories-header h1:active {
+                    transform: scale(0.95);
+                }
+
+                /* Smooth animation on focus without keyframes */
+                .categories-header h1:focus {
+                    outline: none;
+                    box-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+                    transform: translateY(-2px);
+                    transition: transform 0.2s ease, box-shadow 0.3s ease;
+                }
+
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Equal spacing between cards */
+            padding: 20px;
+            gap: 20px;
+            max-width: 1200px; /* Container width restriction */
+            margin: 0 auto; /* Center container */
+        }
+
+        .category-card {
+            flex: 1 1 calc(25% - 20px); /* 25% width per card, accounting for gap */
+            max-width: calc(25% - 20px); /* Ensures cards don't exceed 25% width */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-card .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .category-card .card-content h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .category-card .card-content p {
+            margin: 0;
+            color: #666;
+        }
+
+        .category-card .card-content a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-card .card-content a:hover {
+            background-color: #45a049;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <div class="categories-header">
+        <h1>SHOP BY CATEGORIES</h1>
+    </div>
+
+    <div class="categories-container">
+        <div class="category-card">
+            <img src="https://10web.io/blog/wp-content/uploads/sites/2/2024/08/sell-electronics-online.jpg" alt="Category 1">
+            <div class="card-content">
+                <h3>Electronics</h3>
+                <p>Explore the latest gadgets and devices.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.fastsimon.com/wp-content/uploads/pexels-clint-maliq-13634354-scaled.webp" alt="Category 2">
+            <div class="card-content">
+                <h3>Fashion</h3>
+                <p>Discover trending styles and clothing.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://waves.net.pk/wp-content/uploads/2024/09/hll-770x420.jpg" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa8ZjJ1N2vGGpFrEmCeM6wh5nCFrlHQDTykOnqT3Fyuwmhc0RnniBGvIbm_Tu0wpfmJ_8&usqp=CAU" alt="Category 4">
+            <div class="card-content">
+                <h3>Beauty</h3>
+                <p>Find beauty and skincare products.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="categories-container">
+        <div class="category-card">
+            <img src="https://5.imimg.com/data5/GG/UZ/FC/SELLER-66562557/electronics-home-appliance-store-billing-erp-software.jpg" alt="Category 1">
+            <div class="card-content">
+                <h3>Electronics</h3>
+                <p>Explore the latest gadgets and devices.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://publish.purewow.net/wp-content/uploads/sites/2/2023/04/summer-fashion-trends-butter-yellow.jpg?fit=1360%2C1600" alt="Category 2">
+            <div class="card-content">
+                <h3>Fashion</h3>
+                <p>Discover trending styles and clothing.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.wavesplus.pk/cdn/shop/articles/Home-Appliances_1170x.jpg?v=1656332160" alt="Category 3">
+            <div class="card-content">
+                <h3>Home Appliances</h3>
+                <p>Upgrade your home with modern appliances.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/businessoffashion/HYYQFJAHLRAAFLXJV4OQSLTZQY.jpg" alt="Category 4">
+            <div class="card-content">
+                <h3>Beauty</h3>
+                <p>Find beauty and skincare products.</p>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
